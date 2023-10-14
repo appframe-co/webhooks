@@ -41,7 +41,6 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
     res.write(`id: ${userId}\n\n`);
 
     req.on('close', () => {
-        console.log(`${userId} - Connection closed`);
         delete clients[userId];
         res.end();
     });
